@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 
-
+import './App.css';
 
 function Eventss(props) {
     let [Username, setUserName] = useState("");
@@ -22,23 +22,25 @@ function Eventss(props) {
   arr[x]= sentense;
   
  
-    return ( <div >
+    return ( 
+    <div >
+      <div className="App2">
           <p>{Username}</p>
-        <p>{email}</p>
-        <form>
+          <p>{email}</p>
+          <form>
             <label >User Name</label>
             <input type="text" id="UserName" name="UserName" value={Username} onChange={element => setUserName(element.target.value) } ></input><br></br>
             <label >Email</label>
             <input type="text" id="Email" name="Email" value={email} onChange={element => setEmail(element.target.value)} ></input>
-           </form>
+          </form>
+      </div>
+      <div className="App2">
+        <div>{arr.map( (item) => <span key={item}>{item}</span>)}</div>
+        <button onClick = { () => setSentence("This sentence has changed")}>Change Sentence </button>
+        <div > number of index that change {x+1}</div>
 
-           <div>{arr.map( (item) => <li key={item}>{item}</li>)}</div>
-
-           <button onClick = { () => setSentence("This sentence has changed")} >Change Sentence </button>
-           <div > number of index that change {x+1}</div>
-
-      
-         </div>
+      </div>
+    </div>
        
     );
 }
